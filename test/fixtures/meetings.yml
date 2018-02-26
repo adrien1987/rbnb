@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  date: 2018-02-26 20:50:08
+  duration: 1.5
+  city: MyString
+  zipcode: MyString
+  address: MyString
+  description: MyText
+  teacher: one
+  user: one
+
+two:
+  status: MyString
+  date: 2018-02-26 20:50:08
+  duration: 1.5
+  city: MyString
+  zipcode: MyString
+  address: MyString
+  description: MyText
+  teacher: two
+  user: two

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profession: MyString
+  description: MyString
+  hourly_price_cents: 1
+  user: one
+  category: one
+
+two:
+  profession: MyString
+  description: MyString
+  hourly_price_cents: 1
+  user: two
+  category: two
