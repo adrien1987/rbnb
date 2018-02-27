@@ -22,7 +22,6 @@
   <%= link_to "Modifier mes informations formateur", edit_teacher_path(@teacher) %>
 
 <% end %>
-
 <% if @current_user != @teacher.user %>
 
   <%= link_to "Liste des formateurs", category_teachers_path(@teacher.category) %>
