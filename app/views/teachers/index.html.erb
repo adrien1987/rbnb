@@ -5,7 +5,7 @@
 	    <img src=“” class=“img-fluid rounded-circle z-depth-2 avatar”>
 	  </div>
 	               <!-- Name -->
-		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= teacher.user.firstname %> <%= teacher.user.lastname %></h3>
+		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= link_to teacher.user.firstname teacher_path(teacher)%> <%= link_to teacher.user.lastname teacher_path(teacher) %></h3>
 		<h5 class=“font-weight-bold dark-grey-text mb-3">
 	    <strong><%= teacher.profession %></strong>
 	  </h5>

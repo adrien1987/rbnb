@@ -1,9 +1,10 @@
 
 <h1>Votre profil</h1>
 
-<p><%= @profile.firstname %></p>
-<p><%= @profile.lastname %></p>
-<p><%= @profile.email %></p>
+<p>Firstname : <%= @profile.firstname %></p>
+<p>Lastname : <%= @profile.lastname %></p>
+<p>Email <%= @profile.email %></p>
 <p><%= @profile.photo %></p>
+
 
 <%= link_to "Modifier mon profil", edit_user_registration_path %>
