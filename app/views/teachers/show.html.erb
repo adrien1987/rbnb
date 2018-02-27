@@ -1,2 +1,30 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+
+<h1>Profil teacher </h1>
+
+<p>Firstname : <%= @teacher.user.firstname %></p>
+<p>Lastname : <%=  @teacher.user.lastname %></p>
+<p>Email <%= @teacher.user.email %></p>
+<p><%=  @teacher.user.photo %></p>
+
+<% if @current_user == @teacher.user %>
+
+  <p> <%= link_to "Modifier mes informations de base ", edit_user_registration_path %> </p>
+
+<% end %>
+
+<p> Profession : <%= @teacher.profession %></p>
+<p> Description : <%= @teacher.description %></p>
+<p> Taux horaire : <%= @teacher.hourly_price_cents %></p>
+<p>Category : <%= @teacher.category.name %> </p>
+
+<% if @current_user == @teacher.user %>
+
+  <%= link_to "Modifier mes informations formateur", edit_teacher_path(@teacher) %>
+
+<% end %>
+
+<% if @current_user != @teacher.user %>
+
+  <%= link_to "Liste des formateurs", category_teachers_path(@teacher.category) %>
+
+<% end %>

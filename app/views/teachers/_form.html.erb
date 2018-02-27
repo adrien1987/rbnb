@@ -1,9 +1,10 @@
 <%= simple_form_for(@teacher) do |f| %>
-  <%= f.input :description, label: 'description'%>
-  <%= f.input :profession, label: 'profession'%>
-  <%= f.input :hourly_price_cents, label: 'taux horaire'%>
-  <%= f.association :category%>
-  <%= f.submit 'Deviens teacher', class:'btn btn-primary' %>
+
+  <%= f.input :description, label: 'description' %>
+  <%= f.input :profession, label: 'profession' %>
+  <%= f.input :hourly_price_cents, label: 'taux horaire' %>
+  <%= f.association :category %>
+  <%= f.submit class:'btn btn-primary' %>
 <% end %>
 
-<%= link_to "revenir à mon profil", profiles_path %>
+

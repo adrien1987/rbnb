@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  before_action :set_teacher, only: [:show, :edit, :update]
 
   def index
     if params[:category_id].nil?
@@ -9,30 +10,35 @@ class TeachersController < ApplicationController
   end
 
   def show
+    @current_user = current_user
   end
 
   def new
     @teacher = Teacher.new
+    @teacher.user = current_user
   end
 
   def create
     @teacher = Teacher.new(teacher_params)
     @teacher.user = current_user
-    redirect_to profiles_path
+    @teacher.save
+    redirect_to teacher_path(@teacher)
   end
 
   def edit
   end
 
   def update
+    @teacher = Teacher.update(teacher_params)
+    redirect_to teacher_path(@teacher)
   end
 
   def teacher_params
-    params.require(:teacher).permit(:category, :profession, :description, :hourly_price_cents)
+    params.require(:teacher).permit(:category_id, :profession, :description, :hourly_price_cents)
   end
 
-  def set_teachers
-    @teacher = Teacher.find(params[:category_id])
+  def set_teacher
+    @teacher = Teacher.find(params[:id])
   end
 
 end

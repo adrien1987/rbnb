@@ -4,7 +4,7 @@
 <% @teachers.each do |teacher| %>
 
 <li>
-  <%= teacher.user.firstname %>
+  <%= link_to teacher.user.firstname, teacher_path(teacher) %>
   |<%= teacher.user.lastname %>
   |<%= teacher.user.email %>
   |<%= teacher.profession %>
