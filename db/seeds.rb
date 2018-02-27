@@ -33,33 +33,33 @@ puts "End of category seed"
 
 Teacher.destroy_all
 puts "start of teacher seed"
-teacher1 = Teacher.create!(profession: "Astro-physicien", description: "Andre", hourly_price_cents: 100,
+teacher1 = Teacher.create!(profession: "Astro-physicien", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
   user: adrien, category: science)
-teacher2 = Teacher.create!(profession: "Mathématicien", description: "Andre", hourly_price_cents: 50,
+teacher2 = Teacher.create!(profession: "Mathématicien", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 50,
   user: david, category: science)
-teacher3 = Teacher.create!(profession: "Chercheur en mécanique quantique", description: "Andre", hourly_price_cents: 80,
+teacher3 = Teacher.create!(profession: "Chercheur en mécanique quantique", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 80,
   user: robert, category: science)
 
-teacher4 = Teacher.create!(profession: "Curateur de musée", description: "Andre", hourly_price_cents: 40,
+teacher4 = Teacher.create!(profession: "Curateur de musée", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 40,
   user: edouard, category: art)
-teacher5 = Teacher.create!(profession: "Professeur en littérature ancienne", description: "Andre", hourly_price_cents: 50,
+teacher5 = Teacher.create!(profession: "Professeur en littérature ancienne", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 50,
   user: joseph, category: art)
-teacher6 = Teacher.create!(profession: "Critique littéraire", description: "Andre", hourly_price_cents: 100,
+teacher6 = Teacher.create!(profession: "Critique littéraire", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
   user: anne, category: art)
 
-teacher7 = Teacher.create!(profession: "Expert comptable", description: "Andre", hourly_price_cents: 100,
+teacher7 = Teacher.create!(profession: "Expert comptable", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
   user: sophie, category: business)
-teacher8 = Teacher.create!(profession: "CEO", description: "Andre", hourly_price_cents: 200,
+teacher8 = Teacher.create!(profession: "CEO", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 200,
   user: joan, category: business)
-teacher9 = Teacher.create!(profession: "Chef de projet", description: "Andre", hourly_price_cents: 80,
+teacher9 = Teacher.create!(profession: "Chef de projet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 80,
   user: ben, category: business)
 
-teacher10 = Teacher.create!(profession: "Professeur chercheur en économie", description: "Andre", hourly_price_cents: 120,
+teacher10 = Teacher.create!(profession: "Professeur chercheur en économie", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 120,
   user: aurelie, category: economie)
-teacher11 = Teacher.create!(profession: "Consultant en think tank", description: "Andre", hourly_price_cents: 90,
+teacher11 = Teacher.create!(profession: "Consultant en think tank", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 90,
   user: mathieu, category: economie)
 
-teacher12 = Teacher.create!(profession: "Ecrivain", description: "Andre", hourly_price_cents: 60,
+teacher12 = Teacher.create!(profession: "Ecrivain", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 60,
   user: lazare, category: philosophie)
 
 print "teacher: "
