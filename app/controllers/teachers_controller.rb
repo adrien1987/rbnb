@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     if params[:category_id].nil?
