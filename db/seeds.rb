@@ -1,7 +1,106 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+puts "start of users  seed"
+jane = User.create!(email: "jane_tc@gmail.com", password: "pick1brain", firstname: "Jane", lastname: "Colin", photo: "", is_teacher: false)
+luc = User.create!(email: "luc_tc@gmail.com", password: "pick1brain", firstname: "Luc", lastname: "Dano", photo: "", is_teacher: false)
+jacques = User.create!(email: "jacques_tc@gmail.com", password: "pick1brain", firstname: "jacques", lastname: "Beauvard", photo: "", is_teacher: false)
+paul = User.create!(email: "paul_tc@gmail.com", password: "pick1brain", firstname: "Paul", lastname: "Croix", photo: "", is_teacher: false)
+adrien = User.create!(email: "adrien_tc@gmail.com", password: "pick1brain", firstname: "Adrien", lastname: "Rodet", photo: "", is_teacher: true)
+david = User.create!(email: "david_tc@gmail.com", password: "pick1brain", firstname: "David", lastname: "Bodet", photo: "", is_teacher: true)
+robert = User.create!(email: "robert_tc@gmail.com", password: "pick1brain", firstname: "Robert", lastname: "Gela", photo: "", is_teacher: true)
+edouard = User.create!(email: "edouard_tc@gmail.com", password: "pick1brain", firstname: "Edouard", lastname: "Martoni", photo: "", is_teacher: true)
+joseph = User.create!(email: "joseph_tc@gmail.com", password: "pick1brain", firstname: "Joseph", lastname: "Badinter", photo: "", is_teacher: true)
+anne = User.create!(email: "anne_tc@gmail.com", password: "pick1brain", firstname: "Anne", lastname: "Melies", photo: "", is_teacher: true)
+sophie = User.create!(email: "sophie_tc@gmail.com", password: "pick1brain", firstname: "Sophie", lastname: "Daunat", photo: "", is_teacher: true)
+joan = User.create!(email: "joan_tc@gmail.com", password: "pick1brain", firstname: "Joan", lastname: "Vola", photo: "", is_teacher: true)
+ben = User.create!(email: "ben_tc@gmail.com", password: "pick1brain", firstname: "Ben", lastname: "Ambertin", photo: "", is_teacher: true)
+aurelie = User.create!(email: "aurelie_tc@gmail.com", password: "pick1brain", firstname: "Aurelie", lastname: "Tauri", photo: "", is_teacher: true)
+mathieu = User.create!(email: "mathieu_tc@gmail.com", password: "pick1brain", firstname: "Mathieu", lastname: "Chiraqui", photo: "", is_teacher: true)
+lazare = User.create!(email: "lazare_tc@gmail.com", password: "pick1brain", firstname: "Lazare", lastname: "Resti", photo: "", is_teacher: true)
+print "users: "
+p User.all
+puts "End of users seed"
+
+Category.destroy_all
+puts "start of category seed"
+science = Category.create!(name: "Science")
+art = Category.create!(name: "Art")
+business = Category.create!(name: "Business")
+economie = Category.create!(name: "Economie")
+philosophie = Category.create!(name: "Philosophie")
+print "categories: "
+p Category.all
+puts "End of category seed"
+
+Teacher.destroy_all
+puts "start of teacher seed"
+teacher1 = Teacher.create!(profession: "Astro-physicien", description: "Andre", hourly_price_cents: 100,
+  user: adrien, category: science)
+teacher2 = Teacher.create!(profession: "Mathématicien", description: "Andre", hourly_price_cents: 50,
+  user: david, category: science)
+teacher3 = Teacher.create!(profession: "Chercheur en mécanique quantique", description: "Andre", hourly_price_cents: 80,
+  user: robert, category: science)
+
+teacher4 = Teacher.create!(profession: "Curateur de musée", description: "Andre", hourly_price_cents: 40,
+  user: edouard, category: art)
+teacher5 = Teacher.create!(profession: "Professeur en littérature ancienne", description: "Andre", hourly_price_cents: 50,
+  user: joseph, category: art)
+teacher6 = Teacher.create!(profession: "Critique littéraire", description: "Andre", hourly_price_cents: 100,
+  user: anne, category: art)
+
+teacher7 = Teacher.create!(profession: "Expert comptable", description: "Andre", hourly_price_cents: 100,
+  user: sophie, category: business)
+teacher8 = Teacher.create!(profession: "CEO", description: "Andre", hourly_price_cents: 200,
+  user: joan, category: business)
+teacher9 = Teacher.create!(profession: "Chef de projet", description: "Andre", hourly_price_cents: 80,
+  user: ben, category: business)
+
+teacher10 = Teacher.create!(profession: "Professeur chercheur en économie", description: "Andre", hourly_price_cents: 120,
+  user: aurelie, category: economie)
+teacher11 = Teacher.create!(profession: "Consultant en think tank", description: "Andre", hourly_price_cents: 90,
+  user: mathieu, category: economie)
+
+teacher12 = Teacher.create!(profession: "Ecrivain", description: "Andre", hourly_price_cents: 60,
+  user: lazare, category: philosophie)
+
+print "teacher: "
+p Teacher.all
+puts "End of teacher seed"
+
+Meeting.destroy_all
+puts "start of meeting  seed"
+meeting1 = Meeting.create!(status: "pending", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
+  zipcode: "75014",  address: "4 rue Alesia", description: "Discussion enflammée sur les voyages intersidéraux ", teacher: teacher1, user: jane)
+meeting2 = Meeting.create!(status: "finished", date: Time.new(2018,01,06, 11, 25, 00), duration: 3, city: "Paris",
+  zipcode: "75009",  address: "10 rue La Fayette", description: "Lecture et échanges : Décrypter les mystères du boson de higgs", teacher: teacher3, user: jane)
+meeting3 = Meeting.create!(status: "accepted", date: Time.new(2018,04,06, 18, 30, 00), duration: 1, city: "Paris",
+  zipcode: "75017",  address: "18 place de clichy", description: "Visites : Les secrets du musée d'Orsay", teacher: teacher4, user: luc)
+meeting4 = Meeting.create!(status: "finished", date: Time.new(2018,02,06, 17, 00, 00), duration: 4, city: "Paris",
+  zipcode: "75001",  address: "22 rue de l'opéra", description: "Discussion : La légende arthurienne du Moyen Age à nos jours", teacher: teacher5, user: luc)
+meeting5 = Meeting.create!(status: "finished", date: Time.new(2018,03,10, 19, 00, 00), duration: 2, city: "Paris",
+  zipcode: "75002",  address: "1 boulevard des Italiens", description: "La performance à travers la gestions des talents", teacher: teacher8, user: jacques)
+meeting6 = Meeting.create!(status: "finished", date: Time.new(2018,03,06, 14, 30, 00), duration: 3, city: "Paris",
+  zipcode: "75017",  address: "4 rue Nollet", description: "La méthodologie lean en pratique", teacher: teacher9, user: jacques)
+meeting7 = Meeting.create!(status: "cancel", date: Time.new(2018,02,04, 11, 25, 00), duration: 4, city: "Paris",
+  zipcode: "75018",  address: "3 rue de Clignancourt", description: "Débat : comment réduire la dette de la sécurité sociale", teacher: teacher11, user: paul)
+meeting8 = Meeting.create!(status: "finished", date: Time.new(2018,01,06, 18, 00, 00), duration: 2, city: "Paris",
+  zipcode: "75010",  address: "2 rue de crimée", description: "Thème : Spinoza, les nihilistes ont toujours torts", teacher: teacher12, user: paul)
+print "meetings : "
+p Meeting.all
+puts "End of meeting seed"
+
+Review.destroy_all
+puts "start of review seed"
+review1 = Review.create!(note: 4, content: "La meilleure expérience de ma vie", meeting: meeting2)
+review2 = Review.create!(note: 5, content: "Superbes échanges: Que de nouvelles choses apprises !", meeting: meeting4)
+review3 = Review.create!(note: 3, content: "Correcte sans plus", meeting: meeting5)
+review4 = Review.create!(note: 4, content: "Que de temps gagner grace à cette intervention", meeting: meeting6)
+review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeting: meeting8)
+
+print "reviews : "
+p Review.all
+puts "End of review seed"
+
+
+
+
+
