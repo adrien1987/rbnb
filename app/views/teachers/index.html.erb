@@ -1,0 +1,15 @@
+<h1>Teachers</h1>
+
+ firstname |lastname | email | profession | description | hourly_price_cents
+<% @teachers.each do |teacher| %>
+
+<li>
+  <%= teacher.user.firstname %>
+  |<%= teacher.user.lastname %>
+  |<%= teacher.user.email %>
+  |<%= teacher.profession %>
+  |<%= teacher.description %>
+  |<%= teacher.hourly_price_cents %>
+</li>
+
+<% end %>
