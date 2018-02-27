@@ -1,19 +1,18 @@
 <h1>Teachers</h1>
 <% @teachers.each do |teacher| %>
-	<div class=“jumbotron p-5 text-center text-md-left author-box”>
+	<div class=“jumbotron p-5 text-center text-md-left author-box” id="teacher-card">
+		<div class=“col-12 col-md-2 mb-md-0 mb-4">
+	    <img src=“” class=“img-fluid rounded-circle z-depth-2 avatar”>
+	  </div>
 	               <!-- Name -->
 		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= teacher.user.firstname %> <%= teacher.user.lastname %></h3>
+		<h5 class=“font-weight-bold dark-grey-text mb-3">
+	    <strong><%= teacher.profession %></strong>
+	  </h5>
 		<hr>
 		<div class=“row”>
-	    <!-- Avatar -->
-	    <div class=“col-12 col-md-2 mb-md-0 mb-4">
-	      <img src=“http://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg” class=“img-fluid rounded-circle z-depth-2 avatar”>
-	    </div>
 	    <!-- Author Data -->
 	    <div class=“col-12 col-md-10”>
-	      <h5 class=“font-weight-bold dark-grey-text mb-3">
-	        <strong><%= teacher.profession %></strong>
-	      </h5>
 	      <div class=“personal-sm pb-3”>
 	        <a class=“pr-2 email-ic”>
 	          <i class=“fa fa-home mr-2”> </i>
@@ -32,8 +31,9 @@
 	        </a>
 	      </div>
 	      <p><%= teacher.description %></p>
-	      <p><%= teacher.hourly_price_cents %></p>
+	      <p><%= teacher.hourly_price_cents %>€/h</p>
 	    </div>
+	    <%= link_to "Rencontrez #{teacher.user.firstname}" %>
 	  </div>
 	</div>
 <% end %>
