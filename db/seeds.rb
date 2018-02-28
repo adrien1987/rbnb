@@ -33,33 +33,33 @@ puts "End of category seed"
 
 Teacher.destroy_all
 puts "start of teacher seed"
-teacher1 = Teacher.create!(profession: "Astro-physicien", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
+teacher1 = Teacher.create!(profession: "Astro-physicien", description: "astro physicien de génie", hourly_price_cents: 100,
   user: adrien, category: science)
-teacher2 = Teacher.create!(profession: "Mathématicien", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 50,
+teacher2 = Teacher.create!(profession: "Mathématicien", description: "10 ans de recherches en mathématiques", hourly_price_cents: 50,
   user: david, category: science)
-teacher3 = Teacher.create!(profession: "Chercheur en mécanique quantique", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 80,
+teacher3 = Teacher.create!(profession: "Chercheur en mécanique quantique", description: "Découvrez l'atome avec moi", hourly_price_cents: 80,
   user: robert, category: science)
 
-teacher4 = Teacher.create!(profession: "Curateur de musée", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 40,
+teacher4 = Teacher.create!(profession: "Curateur de musée", description: "Doctorat et 12 ans d'expérience dans le domaine de l'art", hourly_price_cents: 40,
   user: edouard, category: art)
-teacher5 = Teacher.create!(profession: "Professeur en littérature ancienne", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 50,
+teacher5 = Teacher.create!(profession: "Professeur en littérature ancienne", description: "Enseignant à la Sorbonne depuis 20 ans", hourly_price_cents: 50,
   user: joseph, category: art)
-teacher6 = Teacher.create!(profession: "Critique littéraire", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
+teacher6 = Teacher.create!(profession: "Critique littéraire", description: "Journaliste dans le monde de l'art, je vous fais découvrir la plus belle littérature", hourly_price_cents: 100,
   user: anne, category: art)
 
-teacher7 = Teacher.create!(profession: "Expert comptable", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 100,
+teacher7 = Teacher.create!(profession: "Expert comptable", description: "Décryptons ensemble vos documents comptables", hourly_price_cents: 100,
   user: sophie, category: business)
-teacher8 = Teacher.create!(profession: "CEO", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 200,
+teacher8 = Teacher.create!(profession: "CEO", description: "Deenez plus performants", hourly_price_cents: 200,
   user: joan, category: business)
-teacher9 = Teacher.create!(profession: "Chef de projet", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 80,
+teacher9 = Teacher.create!(profession: "Chef de projet", description: "Des projets réussis grace à mon expérience en gestion de projets", hourly_price_cents: 80,
   user: ben, category: business)
 
-teacher10 = Teacher.create!(profession: "Professeur chercheur en économie", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 120,
+teacher10 = Teacher.create!(profession: "Professeur chercheur en économie", description: "L'économie n'aura plus de secrets pour vous", hourly_price_cents: 120,
   user: aurelie, category: economie)
-teacher11 = Teacher.create!(profession: "Consultant en think tank", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 90,
+teacher11 = Teacher.create!(profession: "Consultant en think tank", description: "La politique d'aujourd'hui", hourly_price_cents: 90,
   user: mathieu, category: economie)
 
-teacher12 = Teacher.create!(profession: "Ecrivain", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", hourly_price_cents: 60,
+teacher12 = Teacher.create!(profession: "Ecrivain", description: "Discutons des plus belles oeuvres de littérature européenne", hourly_price_cents: 60,
   user: lazare, category: philosophie)
 
 print "teacher: "
@@ -68,21 +68,21 @@ puts "End of teacher seed"
 
 Meeting.destroy_all
 puts "start of meeting  seed"
-meeting1 = Meeting.create!(status: "pending", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
+meeting1 = Meeting.create!(status: "A confirmer", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
   zipcode: "75014",  address: "4 rue Alesia", description: "Discussion enflammée sur les voyages intersidéraux ", teacher: teacher1, user: jane)
-meeting2 = Meeting.create!(status: "finished", date: Time.new(2018,01,06, 11, 25, 00), duration: 3, city: "Paris",
+meeting2 = Meeting.create!(status: "Terminé", date: Time.new(2018,01,06, 11, 25, 00), duration: 3, city: "Paris",
   zipcode: "75009",  address: "10 rue La Fayette", description: "Lecture et échanges : Décrypter les mystères du boson de higgs", teacher: teacher3, user: jane)
-meeting3 = Meeting.create!(status: "accepted", date: Time.new(2018,04,06, 18, 30, 00), duration: 1, city: "Paris",
+meeting3 = Meeting.create!(status: "Confirmé", date: Time.new(2018,04,06, 18, 30, 00), duration: 1, city: "Paris",
   zipcode: "75017",  address: "18 place de clichy", description: "Visites : Les secrets du musée d'Orsay", teacher: teacher4, user: luc)
-meeting4 = Meeting.create!(status: "finished", date: Time.new(2018,02,06, 17, 00, 00), duration: 4, city: "Paris",
+meeting4 = Meeting.create!(status: "Terminé", date: Time.new(2018,02,06, 17, 00, 00), duration: 4, city: "Paris",
   zipcode: "75001",  address: "22 rue de l'opéra", description: "Discussion : La légende arthurienne du Moyen Age à nos jours", teacher: teacher5, user: luc)
 meeting5 = Meeting.create!(status: "finished", date: Time.new(2018,03,10, 19, 00, 00), duration: 2, city: "Paris",
   zipcode: "75002",  address: "1 boulevard des Italiens", description: "La performance à travers la gestions des talents", teacher: teacher8, user: jacques)
-meeting6 = Meeting.create!(status: "finished", date: Time.new(2018,03,06, 14, 30, 00), duration: 3, city: "Paris",
+meeting6 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 14, 30, 00), duration: 3, city: "Paris",
   zipcode: "75017",  address: "4 rue Nollet", description: "La méthodologie lean en pratique", teacher: teacher9, user: jacques)
-meeting7 = Meeting.create!(status: "cancel", date: Time.new(2018,02,04, 11, 25, 00), duration: 4, city: "Paris",
+meeting7 = Meeting.create!(status: "Annulé", date: Time.new(2018,02,04, 11, 25, 00), duration: 4, city: "Paris",
   zipcode: "75018",  address: "3 rue de Clignancourt", description: "Débat : comment réduire la dette de la sécurité sociale", teacher: teacher11, user: paul)
-meeting8 = Meeting.create!(status: "finished", date: Time.new(2018,01,06, 18, 00, 00), duration: 2, city: "Paris",
+meeting8 = Meeting.create!(status: "Terminé", date: Time.new(2018,01,06, 18, 00, 00), duration: 2, city: "Paris",
   zipcode: "75010",  address: "2 rue de crimée", description: "Thème : Spinoza, les nihilistes ont toujours torts", teacher: teacher12, user: paul)
 print "meetings : "
 p Meeting.all

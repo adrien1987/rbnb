@@ -1,11 +1,30 @@
+<div class="col-xs-12">
+  <h1>Votre profil</h1>
 
-<h1>Votre profil</h1>
+  <p>Firstname : <%= @profile.firstname %></p>
+  <p>Lastname : <%= @profile.lastname %></p>
+  <p>Email <%= @profile.email %></p>
+  <!-- <%=image_tag @profile.photo %> -->
 
-<p>Firstname : <%= @profile.firstname %></p>
-<p>Lastname : <%= @profile.lastname %></p>
-<p>Email <%= @profile.email %></p>
-<p><%= @profile.photo %></p>
+  <%= link_to "Modifier mon profil", edit_user_registration_path %>
 
+  <% if @profile.photo.present? %>
+    <%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
+  <% end %>
 
-<%= link_to "Modifier mon profil", edit_user_registration_path %>
-<%= cl_image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
+</div>
+
+<div class="col-xs-12">
+  <h2> Meetings </h2>
+  <ul>
+    <li> status | Date | Durée | Ville (CP) | description| </li>
+    <% @profile.meetings.each do |meeting| %>
+
+      <li>
+        <%= link_to meeting.status, meeting_path(meeting) %> | <%= meeting.date.strftime('%d/%m/%Y à %H:%M') %> | <%= meeting.duration %>h | <%= meeting.city %> (<%= meeting.zipcode %>) | <%= meeting.description[0,20] %>...
+      </li>
+
+    <% end %>
+
+  </ul>
+</div>

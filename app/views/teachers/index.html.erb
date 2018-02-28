@@ -1,4 +1,4 @@
-<h1>Teachers</h1>
+<h1>Brains</h1>
 <% @teachers.each do |teacher| %>
 	<div class=“jumbotron p-5 text-center text-md-left author-box” id="teacher-card">
 		<div class=“col-12 col-md-2 mb-md-0 mb-4">
@@ -33,8 +33,8 @@
 	      <p><%= teacher.description %></p>
 	      <p><%= teacher.hourly_price_cents %>€/h</p>
 	    </div>
-	    <div id="btn"> 
-	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teachers_path, class: "btn btn-primary text-center" %>
+	    <div id="btn">
+	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teacher_path(teacher), class: "btn btn-primary text-center" %>
 	    </div>
 	  </div>
 	</div>
