@@ -1,24 +1,21 @@
-h1 {
+h1, {
 	text-align: center;
 	margin-bottom: 80px;
 }
 
-h3 {
+h2, h3, h4, h5, p {
   text-align: center;
 }
 
-h5 {
-  text-align: center;
-}
-
-p {
-  text-align: center;
-}
 
 #teacher-card {
   border-color: grey;
   border-style: solid;
   margin-bottom: 30px;
+}
+
+#teacher-card2 {
+	text-align: center
 }
 
 #btn {
@@ -31,3 +28,9 @@ p {
 	padding: 10px;
 	margin: 10px;
 }
+
+
+
+
+///////////////
+
