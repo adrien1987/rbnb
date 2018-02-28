@@ -1,48 +1,24 @@
-<h1> Trouver un formateur </h1>
-image_tag art.jpg
-<% @categories.each_with_index  do |category, index| %>
-<%= link_to category_teachers_path(category), class: 'link-featurette' do %>
-  <div class="card mb-3">
-    <%= image_tag category.photo, class: "card-img-top imgcategory", alt:"Card image cap" %>
-    <!-- <img class="card-img-top" src="image_tag art.jpg" alt="Card image cap"> -->
-    <!-- <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category.photo %>');" alt="Card image cap"> -->
-    <div class="card-body">
-      <h5 class="card-title"><%=category.name%></h5>
-      <p class="card-text">es personnes sont plus ouverts que vous ne le pensez</p>
-    </div>
-  </div>
-<% end %>
-  <!-- <% if index % 2 == 0 %> -->
-    <!-- <hr class="featurette-divider">
-    <%= link_to category_teachers_path(category), class: 'link-featurette' do %>
-    <div class="row featurette">
-      <div class="text-category col-xs-12 col-md-9">
-        <h2 class="featurette-heading">Rencontrez des passionnés de <%=category.name%> </h2>
-        <h3>Ces personnes sont plus ouverts que vous ne le pensez</h3> -->
 
 
-        <!-- <div>
-          <p >Imaginez pouvoir communiquer avec un professeur, un passionné, un étudiant en toute simplicité: prenez contact, partager et rencontez-vous !</p>
-        </div> -->
-      <!-- </div>
-      <div class="imgcategory col-md-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category.photo %>'); border-top-right-radius: 16px;"></div>
-    </div> -->
-    <!-- <% end %>
-  <% else %> -->
+
+      <div class="container">
+
+        <div class="row">
+
+        <% @categories.each_with_index  do |category, index| %>
 
 
-    <!-- <hr class="featurette-divider">
-    <%= link_to category_teachers_path(category), class: 'link-featurette' do %>
-    <div class="row featurette">
-      <div class="imgcategory col-md-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path category.photo %>'); border-top-left-radius: 16px;"></div>
-      <div class="text-category col-xs-12 col-md-9">
-        <h2 class="featurette-heading">Rencontrez des passionnés de <%=category.name%> </h2>
-        <h3>Ces personnes sont plus ouverts que vous ne le pensez</h3> -->
-        <!-- <div>
-          <p >Imaginez pouvoir communiquer avec un professeur, un passionné, un étudiant en toute simplicité: prenez contact, partager et rencontez-vous !</p>
-        </div> -->
-      <!-- </div>
-    </div> -->
-    <!-- <% end %>
-  <% end %> -->
-<% end %>
+          <div class="card col-xs-12 col-sm-8 offset-sm-2">
+            <%= link_to category_teachers_path(category), class: 'link-featurette' do %>
+            <div class="card-body">
+              <h5 class="card-title"><%=category.name%></h5>
+              <p class="card-text">Rencontrez des personnes inspirantes, proche de chez vous</p>
+            </div>
+            <%= image_tag category.photo, class: "card-img-top imgcategory", alt:"Card image cap" %>
+            <% end %>
+          </div>
+          <% end %>
+
+        </div>
+
+      </div>
