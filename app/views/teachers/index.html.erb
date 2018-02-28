@@ -34,7 +34,7 @@
 	      <p><%= teacher.hourly_price_cents %>€/h</p>
 	    </div>
 	    <div id="btn">
-	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teachers_path, class: "btn btn-primary text-center" %>
+	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teacher_path(teacher), class: "btn btn-primary text-center" %>
 	    </div>
 	  </div>
 	</div>
