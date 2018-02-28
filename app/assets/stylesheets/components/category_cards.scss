@@ -17,6 +17,7 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
+    background-color: rgb(90,90,90);
 
 }
 
@@ -53,8 +54,16 @@ body {
 
 
 .imgcategory {
-  
+
   background-position: center !important;
   background-size: cover !important;
 
+}
+
+.mb-3 {
+
+    background-color: rgb(60,60,60);
+    color: rgb(240,240,240);
+    border-style: outset;
+    border-color: rgb(50,50,50);
 }
