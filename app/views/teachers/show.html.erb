@@ -1,30 +1,70 @@
+<div class="col-xs-12 col-md-8">
 
-<h1>Profil teacher </h1>
+<!-- If the current user is the teacher it displays a different message -->
+<h1>  <%= @current_user == @teacher.user ? "Mon profil" : "Profil du Brain" %></h1>
 
-<p>Firstname : <%= @teacher.user.firstname %></p>
-<p>Lastname : <%=  @teacher.user.lastname %></p>
+<p>Prénom : <%= @teacher.user.firstname %></p>
+<p>Nom : <%=  @teacher.user.lastname %></p>
 <p>Email <%= @teacher.user.email %></p>
 <p><%=  @teacher.user.photo %></p>
 
+<!-- This link is displayed only if the current user is the theacher -->
 <% if @current_user == @teacher.user %>
-
   <p> <%= link_to "Modifier mes informations de base ", edit_user_registration_path %> </p>
-
 <% end %>
+<!-- end of specific display  for teacher -->
 
 <p> Profession : <%= @teacher.profession %></p>
 <p> Description : <%= @teacher.description %></p>
 <p> Taux horaire : <%= @teacher.hourly_price_cents %></p>
-<p>Category : <%= @teacher.category.name %> </p>
+<p> Categorie : <%= @teacher.category.name %> </p>
 
+<!-- This link is displayed only if the current user is the theacher -->
 <% if @current_user == @teacher.user %>
-
   <%= link_to "Modifier mes informations formateur", edit_teacher_path(@teacher) %>
-
 <% end %>
+<!-- end of specific display  for teacher -->
 
+<!-- This link is not displayed if the current user is the theacher -->
 <% if @current_user != @teacher.user %>
+  <%= link_to "Autres formateurs de la categorie #{@teacher.category.name}", category_teachers_path(@teacher.category) %>
+<% end %>
+<!-- end of display of message specific to a user who is not a teacher -->
 
-  <%= link_to "Liste des formateurs", category_teachers_path(@teacher.category) %>
+
+<!-- This link is displayed only if the current user is the theacher -->
+<% if @current_user == @teacher.user %>
+  <h2> Meetings </h2>
+  <li> status | Date | Durée | Ville (CP) | description| </li>
+  <% @teacher.meetings.each do |meeting| %>
+
+    <li> <%= link_to meeting.status, meeting_path(meeting) %> | <%= meeting.date.strftime('%d/%m/%Y à %H:%M') %> | <%= meeting.duration %>h | <%= meeting.city %> (<%= meeting.zipcode %>) | <%= meeting.description[0,20] %>... </li>
+
+  <% end %>
+<% end %>
+<!-- end of specific display  for teacher -->
+
+<h2> Avis </h2>
+
+<% @teacher.reviews.each do |review| %>
+
+  <p> Note : <%= review.note %> | <%= review.content %> </p>
 
 <% end %>
+
+</div>
+
+<div class="col-xs-12 col-md-4">
+  <h2> Réservez le brain </h2>
+  <%= simple_form_for [@teacher, @meeting] do |f| %>
+    <%= f.input :date %>
+    <%= f.input :duration, label: "Durée" %>
+    <%= f.input :city , label: "Ville" %>
+    <%= f.input :zipcode , label: "CP" %>
+    <%= f.input :address , label: "Adresse" %>
+    <%= f.input :description %>
+    <%= f.submit "Réservez !", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
+
