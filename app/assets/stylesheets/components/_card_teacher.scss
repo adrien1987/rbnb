@@ -7,10 +7,14 @@ h2, h3, h4, h5, p {
   text-align: center;
 }
 
+hr {
+	border-style: solid;
+}
 
 #teacher-card {
-  border-color: grey;
-  border-style: solid;
+	background-color: rgb(60, 60, 60);
+  border-color: rgb(50, 50, 50);
+  border-style: outset;
   margin-bottom: 30px;
 }
 
