@@ -12,6 +12,7 @@ class TeachersController < ApplicationController
 
   def show
     @current_user = current_user
+    @meeting = Meeting.new
   end
 
   def new

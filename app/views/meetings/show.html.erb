@@ -1,0 +1,24 @@
+<h1>Meeting</h1>
+
+<p> Status :  <%= @meeting.status %>  </p>
+<p> Date : <%= @meeting.date.strftime('%d/%m/%Y à %H:%M') %>  </p>
+<p> Durée : <%= @meeting.duration %>h  </p>
+<p> Ville (CP) :  <%= @meeting.city %> (<%= @meeting.zipcode %>)   </p>
+<p> Adresse : <%= @meeting.address %>  </p>
+<p> Description :  <%= @meeting.description %> </p>
+<p> Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %> </p>
+<p> Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %> </p>
+
+<!-- If the current user is the teacher it displays a different link message -->
+<% message = @current_user == @meeting.teacher.user ? "Revenir à mon profil" : "Revenir au profil du brain" %>
+
+<p><%= link_to message, teacher_path(@meeting.teacher) %> </p>
+
+<%= link_to "Modifier", edit_meeting_path(@meeting), class: "btn btn-primary" %>
+
+
+
+
+
+
+

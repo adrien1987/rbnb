@@ -1,0 +1,18 @@
+  <h1> Modifier le meeting </h1>
+<p> Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %> </p>
+<p> Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %> </p>
+  <%= simple_form_for  @meeting do |f| %>
+    <%= f.input :date %>
+    <%= f.input :duration, label: "Durée" %>
+    <%= f.input :city , label: "Ville" %>
+    <%= f.input :zipcode , label: "CP" %>
+    <%= f.input :address , label: "Adresse" %>
+    <%= f.input :description %>
+    <%= f.input :status, collection: Meeting::STATUS %>
+    <%= f.submit "Réservez !", class: "btn btn-primary" %>
+  <% end %>
+
+  <!-- If the current user is the teacher it displays a different link message -->
+<% message = @current_user == @meeting.teacher.user ? "Revenir à mon profil" : "Revenir au profil du brain" %>
+
+<%= link_to message, teacher_path(@meeting.teacher) %>
