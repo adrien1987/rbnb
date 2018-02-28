@@ -7,7 +7,7 @@ class MeetingsController < ApplicationController
     @meeting.teacher = @teacher
     @meeting.user = current_user
     if @meeting.save
-      redirect_to teacher_path(@teacher)
+      redirect_to profiles_path(@teacher)
     else
       render :new
     end
@@ -22,8 +22,15 @@ class MeetingsController < ApplicationController
   end
 
   def update
-    @meeting.update(meeting_params)
-    redirect_to teacher_path(@meeting.teacher)
+    if @meeting.update(meeting_params)
+      if current_user == @meeting.teacher.user
+        redirect_to teacher_path(@meeting.teacher)
+      else
+        redirect_to profiles_path
+      end
+    else
+      render :edit
+    end
   end
 
   private
