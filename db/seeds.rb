@@ -22,11 +22,12 @@ puts "End of users seed"
 
 Category.destroy_all
 puts "start of category seed"
-science = Category.create!(name: "Science")
-art = Category.create!(name: "Art")
-business = Category.create!(name: "Business")
-economie = Category.create!(name: "Economie")
-philosophie = Category.create!(name: "Philosophie")
+science = Category.create!(name: "Science", photo: "science.jpg")
+art = Category.create!(name: "Art", photo: "art.jpg")
+business = Category.create!(name: "Business", photo: "business.jpg")
+economie = Category.create!(name: "Economie", photo: "economie.jpg")
+philosophie = Category.create!(name: "Philosophie", photo: "philosophie.png")
+histoire = Category.create!(name: "Histoire", photo: "histoire.jpg")
 print "categories: "
 p Category.all
 puts "End of category seed"
@@ -99,8 +100,3 @@ review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeti
 print "reviews : "
 p Review.all
 puts "End of review seed"
-
-
-
-
-
