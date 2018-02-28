@@ -54,17 +54,23 @@
 
 </div>
 
-<div class="col-xs-12 col-md-4">
-  <h2> Réservez le brain </h2>
-  <%= simple_form_for [@teacher, @meeting] do |f| %>
-    <%= f.input :date %>
-    <%= f.input :duration, label: "Durée" %>
-    <%= f.input :city , label: "Ville" %>
-    <%= f.input :zipcode , label: "CP" %>
-    <%= f.input :address , label: "Adresse" %>
-    <%= f.input :description %>
-    <%= f.submit "Réservez !", class: "btn btn-primary" %>
-  <% end %>
+<!-- This link is not displayed if the current user is the theacher -->
+<% if @current_user != @teacher.user %>
 
-</div>
+  <div class="col-xs-12 col-md-4">
+    <h2> Réservez le brain </h2>
+    <%= simple_form_for [@teacher, @meeting] do |f| %>
+      <%= f.input :date %>
+      <%= f.input :duration, label: "Durée" %>
+      <%= f.input :city , label: "Ville" %>
+      <%= f.input :zipcode , label: "CP" %>
+      <%= f.input :address , label: "Adresse" %>
+      <%= f.input :description %>
+      <%= f.submit "Réservez !", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+<% end %>
+<!-- end of display of message specific to a user who is not a teacher -->
+
 
