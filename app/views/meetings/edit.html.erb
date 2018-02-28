@@ -1,18 +1,34 @@
-  <h1> Modifier le meeting </h1>
-<p> Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %> </p>
-<p> Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %> </p>
-  <%= simple_form_for  @meeting do |f| %>
-    <%= f.input :date %>
-    <%= f.input :duration, label: "Durée" %>
-    <%= f.input :city , label: "Ville" %>
-    <%= f.input :zipcode , label: "CP" %>
-    <%= f.input :address , label: "Adresse" %>
-    <%= f.input :description %>
-    <%= f.input :status, collection: Meeting::STATUS %>
-    <%= f.submit "Réservez !", class: "btn btn-primary" %>
-  <% end %>
 
-  <!-- If the current user is the teacher it displays a different link message -->
+<div class="container">
+  <div class="row">
+  <div col-xs-8>
+
+
+    <ul class="list-group" style="color:black">
+      <li class="list-group-item"> Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %></li>
+      <li class="list-group-item"> Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %></li>
+    <li class="list-group-item">
+        <%= simple_form_for  @meeting do |f| %>
+          <%= f.input :date %>
+          <%= f.input :duration, label: "Durée" %>
+          <%= f.input :city , label: "Ville" %>
+          <%= f.input :zipcode , label: "CP" %>
+          <%= f.input :address , label: "Adresse" %>
+          <%= f.input :description %>
+          <%= f.input :status, collection: Meeting::STATUS %>
+          <%= f.submit "Réservez !", class: "btn btn-primary" %>
+        <% end %>
+      </li>
+      <li class="list-group-item">
+          <!-- If the current user is the teacher it displays a different link message -->
 <% message = @current_user == @meeting.teacher.user ? "Revenir à mon profil" : "Revenir au profil du brain" %>
 
 <%= link_to message, teacher_path(@meeting.teacher) %>
+      </li>
+
+  </ul>
+
+
+</div>
+</div>
+</div>
