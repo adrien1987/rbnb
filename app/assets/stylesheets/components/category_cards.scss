@@ -7,3 +7,30 @@ body {
     padding-bottom: 3rem;
     color: #5a5a5a;
 }
+
+.featurette-image {
+  width: 500px;
+  height: 500px;
+}
+
+.featurette {
+  padding: 20px;
+}
+
+.featurette h2 {
+  font-size: 34px;
+  text-align: left;
+  font-family: $headers-font-light;
+}
+
+.featurette h3 {
+  font-size: 24px;
+  text-align: left;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.featurette p {
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Nunito Sans', sans-serif;
+}
