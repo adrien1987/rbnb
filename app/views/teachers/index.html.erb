@@ -1,15 +1,42 @@
-<h1>Brains </h1>
-
- Prénom |Nom | Email | Profession | Description | Prix horaire
+<h1>Brains</h1>
 <% @teachers.each do |teacher| %>
-
-<li>
-  <%= link_to teacher.user.firstname, teacher_path(teacher) %>
-  |<%= teacher.user.lastname %>
-  |<%= teacher.user.email %>
-  |<%= teacher.profession %>
-  |<%= teacher.description %>
-  |<%= teacher.hourly_price_cents %>
-</li>
-
+	<div class=“jumbotron p-5 text-center text-md-left author-box” id="teacher-card">
+		<div class=“col-12 col-md-2 mb-md-0 mb-4">
+	    <img src=“” class=“img-fluid rounded-circle z-depth-2 avatar”>
+	  </div>
+	               <!-- Name -->
+		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= teacher.user.firstname %> <%= teacher.user.lastname %></h3>
+		<h5 class=“font-weight-bold dark-grey-text mb-3">
+	    <strong><%= teacher.profession %></strong>
+	  </h5>
+		<hr>
+		<div class=“row”>
+	    <!-- Author Data -->
+	    <div class=“col-12 col-md-10”>
+	      <div class=“personal-sm pb-3”>
+	        <a class=“pr-2 email-ic”>
+	          <i class=“fa fa-home mr-2”> </i>
+	        </a>
+	        <a class=“pr-2 fb-ic”>
+	          <i class=“fa fa-facebook mr-2”> </i>
+	        </a>
+	        <a class=“pr-2 tw-ic”>
+	          <i class=“fa fa-twitter mr-2”> </i>
+	        </a>
+	        <a class=“pr-2 gplus-ic”>
+	          <i class=“fa fa-google-plus mr-2”> </i>
+	        </a>
+	        <a class=“pr-2 li-ic”>
+	          <i class=“fa fa-linkedin mr-2”> </i>
+	        </a>
+	      </div>
+	      <p><%= teacher.description %></p>
+	      <p><%= teacher.hourly_price_cents %>€/h</p>
+	    </div>
+	    <div id="btn">
+	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teachers_path, class: "btn btn-primary text-center" %>
+	    </div>
+	  </div>
+	</div>
 <% end %>
+
