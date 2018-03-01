@@ -22,7 +22,7 @@ puts "End of users seed"
 
 Category.destroy_all
 puts "start of category seed"
-science = Category.create!(name: "Science", photo: "science.jpg")
+science = Category.create!(name: "Science", photo: "science-category.jpg")
 art = Category.create!(name: "Art", photo: "art.jpg")
 business = Category.create!(name: "Business", photo: "business.jpg")
 economie = Category.create!(name: "Economie", photo: "economie.jpg")
