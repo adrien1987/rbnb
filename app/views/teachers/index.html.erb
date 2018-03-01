@@ -8,10 +8,10 @@
 		<%= link_to teacher_path(teacher), class: 'link-featurette' do %>
 		
 		<div class=“col-xs-12 col-sm-8 offset-sm-2">
-	    <% if teacher.user.photo %>
-	    	<%= image_tag(teacher.user.photo, class: "avatar-large") %>
+	    <% if teacher.user.remote_photo_url %>
+	    	<%= image_tag(teacher.user.remote_photo_url, class: "avatar-large") %>
 	    <% else %>
-	    	<%=	image_tag("assets/images/logo.png", class: "avatar-large") %>
+	    	<%=	image_tag("logo.png", class: "avatar-large") %>
 	    <% end %>
 	  </div>
 	               <!-- Name -->
