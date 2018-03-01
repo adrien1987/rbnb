@@ -1,6 +1,4 @@
 <div class="container">
-<div class="row">
-  <div class="col-xs-7">
 
     <ul class="list-group" style="color:black">
     <li class="list-group-item">
@@ -25,18 +23,22 @@
 
 
     <li class="list-group-item">
+      <i class="fas fa-briefcase"></i>
       Profession : <%= @teacher.profession %>
     </li>
 
     <li class="list-group-item">
+      <i class="fas fa-info"></i>
       Description : <%= @teacher.description %>
     </li>
 
     <li class="list-group-item">
+      <i class="fas fa-plus-circle"></i>
       Taux horaire : <%= @teacher.hourly_price_cents %> €
     </li>
 
     <li class="list-group-item">
+      <i class="fas fa-list-alt"></i>
       Categorie : <%= @teacher.category.name %>
     </li>
 
@@ -55,8 +57,8 @@
   </ul>
 
     <br>
-    <div class="text-center">
-      <h2> Meetings </h2>
+    <div>
+      <h2 class="text-center"> Meetings </h2>
       <!-- indice pour parcourir le tabeau bootstrap-->
       <% i = 0 %>
 
@@ -75,23 +77,42 @@
 
           <% @teacher.meetings.each do |meeting| %>
 
-          <tr>
-            <th scope="row"><%= i = i + 1 %></th>
-            <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
-            <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
-            <td>@<%= meeting.duration %>h</td>
-            <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
-            <td><%= meeting.description[0,20] %>...</td>
-          </tr>
+            <tr>
+              <th scope="row"><%= i = i + 1 %></th>
+              <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+              <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
+              <td><%= meeting.duration %>h</td>
+              <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
+              <td><%= meeting.description[0,20] %>...</td>
+            </tr>
 
-              <% end %>
+          <% end %>
         </tbody>
       </table>
 
     </div>
-  </div>
 
-  <div class="col-xs-4 offset-xs-8">
+
+    <ul class="list-group" style="color:black">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <h2 class="text-center"> Avis </h2>
+      </li>
+      <% @teacher.reviews.each do |review| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= review.content %>
+          <% 5.times do |star| %>
+            <% if star < review.note %>
+              <i class="fas fa-star" style="color:  #DAA520"></i>
+            <% else %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+  </ul>
+
+<br>
+
     <% if @teacher.user.photo.present? %>
       <%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
     <% end %>
@@ -102,14 +123,16 @@
         <!-- This link is not displayed if the current user is the theacher -->
       <% if @current_user != @teacher.user %>
 
-          <h2> Réservez le brain </h2>
+          <h2>
+            <i class="fas fa-calendar-alt"></i> Réservez le brain
+          </h2>
           <%= simple_form_for [@teacher, @meeting] do |f| %>
-            <%= f.input :date %>
-            <%= f.input :duration, label: "Durée" %>
-            <%= f.input :city , label: "Ville" %>
-            <%= f.input :zipcode , label: "CP" %>
-            <%= f.input :address , label: "Adresse" %>
-            <%= f.input :description %>
+            <%= f.input :date, label: '<i class="fas fa-clock"></i>'.html_safe + " Date" %>
+            <%= f.input :duration, label: "Durée", label: '<i class="fas fa-stopwatch"></i>'.html_safe + " Durée" %>
+            <%= f.input :city , label: '<i class="fas fa-building"></i>'.html_safe + " Ville" %>
+            <%= f.input :zipcode, label: '<i class="fas fa-envelope-square"></i>'.html_safe + " CP" %>
+            <%= f.input :address, label: '<i class="fas fa-envelope-square"></i>'.html_safe + " Adresse" %>
+            <%= f.input :description , label: '<i class="fas fa-info"></i>'.html_safe + " Description"%>
             <%= f.submit "Réservez !", class: "btn btn-primary" %>
           <% end %>
 
@@ -118,8 +141,8 @@
     </li>
 
   </ul>
-  </div>
-</div>
+
+
 
 </div>
 
