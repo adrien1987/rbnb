@@ -25,6 +25,17 @@ image_tag art.jpg
 <!-- <%= render 'shared/wrapper' %> -->
 <!-- je mets les cards -->
       <div class="container">
+
+        <div class="search">
+          <%= form_tag root_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a category" %>
+          <% end %>
+
+        </div>
+
         <div class="row">
         <% @categories.each_with_index  do |category, index| %>
           <div class="card col-xs-12 col-sm-8 offset-sm-2">
