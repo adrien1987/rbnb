@@ -1,0 +1,25 @@
+<div class="container">
+    <ul class="list-group" style="color:black">
+    <li class="list-group-item">
+
+
+
+          <h2>
+            <i class="fas fa-calendar-alt"></i> Nouvel avis
+          </h2>
+          <%= simple_form_for [@meeting, @review] do |f| %>
+            <%= f.input :note, as: :radio_buttons, collection: (1..5).to_a,
+            label: '<i class="fas fa-star" style="color:  #DAA520"></i>'.html_safe + " Stars  "
+            %>
+            <%= f.input :content, label: '<i class="fas fa-sticky-note"></i>'.html_safe + " Votre avis" %>
+            <%= f.button :button, class: "btn btn-primary" do %>
+              <i class="fas fa-check-circle"></i>
+              Ajouter
+            <% end %>
+
+          <% end %>
+
+    </li>
+
+  </ul>
+</div>
