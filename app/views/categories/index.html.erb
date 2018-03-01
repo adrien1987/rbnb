@@ -1,16 +1,4 @@
-<h1> Trouver un formateur </h1>
-image_tag art.jpg
-<% @categories.each_with_index  do |category, index| %>
-<%= link_to category_teachers_path(category), class: 'link-featurette' do %>
-  <div class="card mb-3">
-    <%= image_tag category.photo, class: "card-img-top imgcategory", alt:"Card image cap" %>
-    <div class="card-body">
-      <h5 class="card-title"><%=category.name%></h5>
-      <p class="card-text">Ces personnes sont plus ouverts que vous ne le pensez</p>
-    </div>
-  </div>
-  <% end %>
-<% end %>
+
 
 
 
@@ -18,7 +6,16 @@ image_tag art.jpg
 
 <!-- je mets les cards -->
       <div class="container">
-
+       <% if params[:query].present? %>
+        <div class="search">
+          <%= form_tag category_teachers_path(@categories.first), method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a category" %>
+          <% end %>
+        </div>
+        <% else  %>
         <div class="search">
           <%= form_tag root_path, method: :get do %>
             <%= text_field_tag :query,
@@ -26,8 +23,7 @@ image_tag art.jpg
               class: "form-control",
               placeholder: "Find a category" %>
           <% end %>
-
-        </div>
+        <% end %>
 
         <div class="row">
         <% @categories.each_with_index  do |category, index| %>
@@ -43,4 +39,3 @@ image_tag art.jpg
           <% end %>
         </div>
       </div>
-
