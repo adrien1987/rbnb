@@ -71,6 +71,11 @@ Meeting.destroy_all
 puts "start of meeting  seed"
 meeting1 = Meeting.create!(status: "A confirmer", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
   zipcode: "75014",  address: "4 rue Alesia", description: "Discussion enflammée sur les voyages intersidéraux ", teacher: teacher1, user: jane)
+meeting1_1 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
+  zipcode: "75014",  address: "4 rue Alesia", description: "Discussion sur l porte des étoiles ", teacher: teacher1, user: paul)
+meeting1_2 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
+  zipcode: "75014",  address: "4 rue Alesia", description: "Discussion sur les voyages dans le temps", teacher: teacher1, user: luc)
+
 meeting2 = Meeting.create!(status: "Terminé", date: Time.new(2018,01,06, 11, 25, 00), duration: 3, city: "Paris",
   zipcode: "75009",  address: "10 rue La Fayette", description: "Lecture et échanges : Décrypter les mystères du boson de higgs", teacher: teacher3, user: jane)
 meeting3 = Meeting.create!(status: "Confirmé", date: Time.new(2018,04,06, 18, 30, 00), duration: 1, city: "Paris",
@@ -91,11 +96,18 @@ puts "End of meeting seed"
 
 Review.destroy_all
 puts "start of review seed"
-review1 = Review.create!(note: 4, content: "La meilleure expérience de ma vie", meeting: meeting2)
-review2 = Review.create!(note: 5, content: "Superbes échanges: Que de nouvelles choses apprises !", meeting: meeting4)
-review3 = Review.create!(note: 3, content: "Correcte sans plus", meeting: meeting5)
-review4 = Review.create!(note: 4, content: "Que de temps gagner grace à cette intervention", meeting: meeting6)
-review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeting: meeting8)
+review1 = Review.create!(note: 4, content: "La meilleure expérience de ma vie", meeting: meeting1)
+review1_1 = Review.create!(note: 5, content: "Superbe esprit, je recommande", meeting: meeting1_1)
+review1_2 = Review.create!(note: 4, content: "Cette rencontre a changé ma vie", meeting: meeting1_2)
+review2 = Review.create!(note: 5, content: "Superbes échanges: Que de nouvelles choses apprises !", meeting: meeting2)
+review3 = Review.create!(note: 3, content: "Correcte sans plus", meeting: meeting3)
+review4 = Review.create!(note: 4, content: "Que de temps gagner grace à cette intervention", meeting: meeting4)
+review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeting: meeting5)
+review5 = Review.create!(note: 4, content: "Super rencontre, échanges axées sur la pratique", meeting: meeting6)
+review6 = Review.create!(note: 5, content: "Tres bonne intervention, je recommande", meeting: meeting7)
+review7 = Review.create!(note: 5, content: "Si mes profs de fac avaient été comme lui", meeting: meeting8)
+# review8 = Review.create!(note: 4, content: "Que de temps gagner grace à cette intervention", meeting: meeting6)
+# review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeting: meeting8)
 
 print "reviews : "
 p Review.all

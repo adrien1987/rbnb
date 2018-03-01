@@ -1,24 +1,72 @@
-<h1>Meeting</h1>
+<div class="container">
 
-<p> Status :  <%= @meeting.status %>  </p>
-<p> Date : <%= @meeting.date.strftime('%d/%m/%Y à %H:%M') %>  </p>
-<p> Durée : <%= @meeting.duration %>h  </p>
-<p> Ville (CP) :  <%= @meeting.city %> (<%= @meeting.zipcode %>)   </p>
-<p> Adresse : <%= @meeting.address %>  </p>
-<p> Description :  <%= @meeting.description %> </p>
-<p> Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %> </p>
-<p> Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %> </p>
+    <ul class="list-group" style="color:black">
+    <li class="list-group-item">
+      <h2 class="text-center">
+        <i class="fas fa-calendar-alt"></i>
+        Meeting
+      </h2>
+    </li>
+    <li class="list-group-item">
+      <i class="fas fa-tag"></i>
+      Status :  <%= @meeting.status %>
+    </li>
+    <li class="list-group-item">
+      <i class="fas fa-clock"></i>
+      Date : <%= @meeting.date.strftime('%d/%m/%Y à %H:%M') %>
+    </li>
 
-<!-- If the current user is the teacher it displays a different link message -->
-<% message = @current_user == @meeting.teacher.user ? "Revenir à mon profil" : "Revenir au profil du brain" %>
+    <li class="list-group-item">
+      <i class="fas fa-stopwatch"></i>
+      Durée : <%= @meeting.duration %>h
+    </li>
 
-<p><%= link_to message, teacher_path(@meeting.teacher) %> </p>
+    <li class="list-group-item">
+      <i class="fas fa-building"></i>
+      Ville (CP) :  <%= @meeting.city %> (<%= @meeting.zipcode %>)
+    </li>
 
-<%= link_to "Modifier", edit_meeting_path(@meeting), class: "btn btn-primary" %>
+    <li class="list-group-item">
+      <i class="fas fa-envelope-square"></i>
+      Adresse : <%= @meeting.address %>
+    </li>
+
+    <li class="list-group-item">
+      <i class="fas fa-info"></i>
+      Description :  <%= @meeting.description %>
+    </li>
+
+    <li class="list-group-item">
+      <i class="fas fa-graduation-cap"></i>
+      Brain : <%= @meeting.teacher.user.firstname %>  <%= @meeting.teacher.user.lastname %>
+    </li>
+
+    <li class="list-group-item">
+      <i class="fas fa-user"></i>
+      Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %>
+    </li>
+
+    <li class="list-group-item">
+      <i class="fas fa-plus-circle"></i>
+      Taux horaire : <%= @meeting.teacher.hourly_price_cents %> €
+    </li>
+
+    <li class="list-group-item">
+      <i class="fas fa-balance-scale"></i>
+      Coût du meeting : <%= @meeting.teacher.hourly_price_cents * @meeting.duration %> €
+    </li>
+
+    <li class="list-group-item">
+      <!-- If the current user is the teacher it displays a different link message -->
+      <% message = @current_user == @meeting.teacher.user ? "Revenir à mon profil" : "Revenir au profil du brain" %>
+      <%= link_to '<i class="fas fa-undo"></i> '.html_safe + message, teacher_path(@meeting.teacher) %>
+    </li>
+
+    <li class="list-group-item">
+      <%= link_to '<i class="fas fa-edit"></i>'.html_safe + " Modifier", edit_meeting_path(@meeting), class: "btn btn-primary" %>
+    </li>
+
+  </ul>
 
 
-
-
-
-
-
+</div>

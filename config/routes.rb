@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :meetings, only: [:show, :edit, :update]
+  resources :reviews, only: [:show]
+
+  resources :meetings, only: [:show, :edit, :update] do
+    resources :reviews, only: [:new, :create]
+  end
 
   resources :teachers, only: [:index, :show, :new, :create, :edit, :update] do
     resources :meetings, only: [:create]
+
   end
   get "categories/:category_id/teachers", to: "teachers#index", as: :category_teachers
 
