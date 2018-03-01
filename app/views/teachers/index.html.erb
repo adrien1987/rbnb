@@ -6,8 +6,7 @@
 <% @teachers.each do |teacher| %>
 	<div class=“row” id="teacher-card">
 		<div class=“col-xs-12 col-sm-8 offset-sm-2">
-	    <!-- <img src=“” class=“img-fluid rounded-circle z-depth-2 avatar”> --> 
-	    <%= image_tag teacher.user.photo, class: "avatar-large" %>
+	    <%= image_tag(teacher.user.photo, class: "avatar-large") %>
 	  </div>
 	               <!-- Name -->
 		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= teacher.user.firstname %> <%= teacher.user.lastname %></h3>
