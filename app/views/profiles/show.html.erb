@@ -34,7 +34,7 @@
             <th scope="row"><%= i = i + 1 %></th>
             <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
             <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
-            <td>@<%= meeting.duration %>h</td>
+            <td><%= meeting.duration %>h</td>
             <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
             <td><%= meeting.description[0,20] %>...</td>
           </tr>

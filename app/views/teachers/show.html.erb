@@ -3,7 +3,7 @@
     <ul class="list-group" style="color:black">
     <li class="list-group-item">
       <h2  class="text-center">
-        <i class="fas fa-id-card"></i><%= @current_user == @teacher.user ? "Mon profil" : "Profil du Brain" %>
+        <i class="fas fa-id-card"></i><%= @current_user == @teacher.user ? "Mon profil" : " Profil du Brain" %>
       </h2>
     </li>
     <li class="list-group-item">
@@ -58,7 +58,7 @@
 
     <br>
     <div>
-      <h2 class="text-center"> Meetings </h2>
+      <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
       <!-- indice pour parcourir le tabeau bootstrap-->
       <% i = 0 %>
 
@@ -71,6 +71,7 @@
             <th scope="col">Durée</th>
             <th scope="col">Ville (CP)</th>
             <th scope="col">description</th>
+            <th scope="col"> Ajouter Avis</th>
           </tr>
         </thead>
         <tbody>
@@ -84,6 +85,7 @@
               <td><%= meeting.duration %>h</td>
               <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
               <td><%= meeting.description[0,20] %>...</td>
+              <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %> </td>
             </tr>
 
           <% end %>
@@ -95,7 +97,8 @@
 
     <ul class="list-group" style="color:black">
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <h2 class="text-center"> Avis </h2>
+        <h2 class="text-center"> <i class="fas fa-comment-alt"></i> Avis </h2>
+
       </li>
       <% @teacher.reviews.each do |review| %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
