@@ -1,6 +1,6 @@
 <div class="container">
 
-    <ul class="list-group" style="color:black">
+    <ul class="list-group" id="profile-card"style="color:black">
     <li class="list-group-item">
       <h2  class="text-center">
         <i class="fas fa-id-card"></i><%= @current_user == @teacher.user ? "Mon profil" : " Profil du Brain" %>
@@ -57,7 +57,7 @@
   </ul>
 
     <br>
-    <div>
+    <div id="meetings-list-card">
       <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
       <!-- indice pour parcourir le tabeau bootstrap-->
       <% i = 0 %>
@@ -102,14 +102,15 @@
       </li>
       <% @teacher.reviews.each do |review| %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= review.content %>
-          <% 5.times do |star| %>
+          <div> <%= review.content %></div>
+          <div><% 5.times do |star| %>
             <% if star < review.note %>
               <i class="fas fa-star" style="color:  #DAA520"></i>
             <% else %>
               <i class="fas fa-star"></i>
             <% end %>
           <% end %>
+          </div> 
         </li>
       <% end %>
   </ul>
@@ -129,7 +130,7 @@
           <h2>
             <i class="fas fa-calendar-alt"></i> Réservez le brain
           </h2>
-          <%= simple_form_for [@teacher, @meeting] do |f| %>
+          <%= simple_form_for [@teacher, @meeting], defaults: { input_html: { class: 'form' } } do |f| %>
             <%= f.input :date, label: '<i class="fas fa-clock"></i>'.html_safe + " Date" %>
             <%= f.input :duration, label: "Durée", label: '<i class="fas fa-stopwatch"></i>'.html_safe + " Durée" %>
             <%= f.input :city , label: '<i class="fas fa-building"></i>'.html_safe + " Ville" %>
