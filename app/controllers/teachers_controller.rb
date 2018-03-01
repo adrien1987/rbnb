@@ -17,7 +17,6 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
-    @teacher.user = current_user
   end
 
   def create
