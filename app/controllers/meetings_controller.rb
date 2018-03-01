@@ -15,6 +15,12 @@ class MeetingsController < ApplicationController
 
   def show
     @current_user = current_user
+    @markers = [{
+      lat: @meeting.latitude,
+      lng: @meeting.longitude,
+    }]
+
+
   end
 
   def edit
