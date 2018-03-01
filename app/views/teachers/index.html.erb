@@ -5,15 +5,24 @@
 <div class="container"> 
 <% @teachers.each do |teacher| %>
 	<div class=“row” id="teacher-card">
+		<%= link_to teacher_path(teacher), class: 'link-featurette' do %>
+		
 		<div class=“col-xs-12 col-sm-8 offset-sm-2">
-	    <%= image_tag(teacher.user.photo, class: "avatar-large") %>
+	    <% if teacher.user.photo %>
+	    	<%= image_tag(teacher.user.photo, class: "avatar-large") %>
+	    <% else %>
+	    	<%=	image_tag("assets/images/logo.png", class: "avatar-large") %>
+	    <% end %>
 	  </div>
 	               <!-- Name -->
 		<h3 class=“h3-responsive text-center font-weight-bold dark-grey-text”><%= teacher.user.firstname %> <%= teacher.user.lastname %></h3>
+		
 		<h5 class=“font-weight-bold dark-grey-text mb-3">
 	    <strong><%= teacher.profession %></strong>
 	  </h5>
+		
 		<hr>
+		
 		<div class=“row”>
 	    <!-- Author Data -->
 	    <div class=“col-xs-12 col-sm-8 offset-sm-2”>
@@ -24,5 +33,8 @@
 	    	<%= link_to "Rencontrez #{teacher.user.firstname}", teacher_path(teacher), class: "btn btn-outline-secondary text-center" %>
 	    </div>
 	  </div>
+		<% end %>
 	</div>
 <% end %>
+
+<div> <%= link_to "Back home", root_path, class: "btn btn-secondary text-center" %> </div>
