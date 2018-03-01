@@ -1,53 +1,56 @@
-<div class="col-xs-8">
+<div class="container">
 
-  <ul class="list-group" style="color:black">
-  <li class="list-group-item">   <h2  class="text-center"> <i class="fas fa-id-card"></i> Votre profil</h2> </li>
-  <li class="list-group-item"> <i class="fas fa-user"></i> <%= @profile.firstname.capitalize %> <%= @profile.lastname.upcase %></li>
-  <li class="list-group-item"> <i class="fas fa-envelope-open"></i> <%= @profile.email %></li>
-  <li class="list-group-item">  <%= link_to '<i class="fas fa-pen-square"></i>'.html_safe + " Modifier mon profil", edit_user_registration_path %> </li>
-</ul>
+  <div class="col-xs-8">
 
-  <br>
-  <div class="text-center">
-    <h2> Meetings </h2>
-    <!-- indice pour parcourir le tabeau bootstrap-->
-    <% i = 0 %>
+    <ul class="list-group" style="color:black">
+    <li class="list-group-item">   <h2  class="text-center"> <i class="fas fa-id-card"></i> Votre profil</h2> </li>
+    <li class="list-group-item"> <i class="fas fa-user"></i> <%= @profile.firstname.capitalize %> <%= @profile.lastname.upcase %></li>
+    <li class="list-group-item"> <i class="fas fa-envelope-open"></i> <%= @profile.email %></li>
+    <li class="list-group-item">  <%= link_to '<i class="fas fa-pen-square"></i>'.html_safe + " Modifier mon profil", edit_user_registration_path %> </li>
+  </ul>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Status</th>
-          <th scope="col">Date</th>
-          <th scope="col">Durée</th>
-          <th scope="col">Ville (CP)</th>
-          <th scope="col">description</th>
-        </tr>
-      </thead>
-      <tbody>
+    <br>
+    <div class="text-center">
+      <h2> Meetings </h2>
+      <!-- indice pour parcourir le tabeau bootstrap-->
+      <% i = 0 %>
 
-        <% @profile.meetings.each do |meeting| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date</th>
+            <th scope="col">Durée</th>
+            <th scope="col">Ville (CP)</th>
+            <th scope="col">description</th>
+          </tr>
+        </thead>
+        <tbody>
 
-        <tr>
-          <th scope="row"><%= i = i + 1 %></th>
-          <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
-          <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
-          <td>@<%= meeting.duration %>h</td>
-          <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
-          <td><%= meeting.description[0,20] %>...</td>
-        </tr>
+          <% @profile.meetings.each do |meeting| %>
 
-            <% end %>
-      </tbody>
-    </table>
+          <tr>
+            <th scope="row"><%= i = i + 1 %></th>
+            <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+            <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
+            <td>@<%= meeting.duration %>h</td>
+            <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
+            <td><%= meeting.description[0,20] %>...</td>
+          </tr>
 
+              <% end %>
+        </tbody>
+      </table>
+
+    </div>
   </div>
+
+  <div class="col-xs-4">
+    <% if @profile.photo.present? %>
+      <%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+
+
 </div>
-
-<div class="col-xs-4">
-  <% if @profile.photo.present? %>
-    <%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
-  <% end %>
-</div>
-
-
