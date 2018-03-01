@@ -1,3 +1,5 @@
-<h1>Teachers#new</h1>
-
-<%= render "form" %>
+<div class="container">
+  <h2>Devenir formateur </h2>
+  <p> <%= current_user.firstname.capitalize %> <%= current_user.lastname.upcase %> : <%= current_user.email %> </p>
+  <%= render "form" %>
+</div>
