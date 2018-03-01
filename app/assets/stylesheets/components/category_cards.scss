@@ -2,20 +2,21 @@
 
 
 body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    // padding-top: 3rem;
+    // padding-bottom: 3rem;
     color: #5a5a5a;
-    background-color: rgb(90,90,90);
+    background-color: white;
 
 
 }
 
 .card {
+    padding: 0px;
 
-    background-color: rgb(60,60,60);
-    color: rgb(240,240,240);
-    border-style: outset;
-    border-color: rgb(50,50,50);
+    background-color: rgb(240,240,240);
+    color: black;
+    // border-style: outset;
+    // border-color: rgb(50,50,50);
   /* Added */
     float: none; /* Added */
     margin-top: 30px; /* Added */
@@ -34,6 +35,9 @@ body {
   font-family: 'lato';
   font-size: 38px;
 }
+.card-body {
+  color: black;
+}
 
 .link-featurette {
   text-decoration: none !important;
@@ -43,4 +47,5 @@ body {
     text-decoration: none !important;
     color: white;
   }
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
 }
