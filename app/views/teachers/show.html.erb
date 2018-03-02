@@ -101,7 +101,6 @@
                 <th scope="col">Durée</th>
                 <th scope="col">Ville (CP)</th>
                 <th scope="col">description</th>
-                <th scope="col"> Ajouter Avis</th>
               </tr>
             </thead>
             <tbody>
@@ -115,7 +114,6 @@
                 <td><%= meeting.duration %>h</td>
                 <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
                 <td><%= meeting.description[0,20] %>...</td>
-                <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %> </td>
               </tr>
 
               <% end %>
