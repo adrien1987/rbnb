@@ -71,9 +71,9 @@ Meeting.destroy_all
 puts "start of meeting  seed"
 meeting1 = Meeting.create!(status: "A confirmer", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
   zipcode: "75014",  address: "4 rue Alesia", description: "Discussion enflammée sur les voyages intersidéraux ", teacher: teacher1, user: jane)
-meeting1_1 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
-  zipcode: "75014",  address: "4 rue Alesia", description: "Discussion sur l porte des étoiles ", teacher: teacher1, user: paul)
-meeting1_2 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 18, 30, 00), duration: 2, city: "Paris",
+meeting1_1 = Meeting.create!(status: "Terminé", date: Time.new(2018,02,06, 18, 30, 00), duration: 2, city: "Paris",
+  zipcode: "75014",  address: "4 rue Alesia", description: "Discussion sur la porte des étoiles ", teacher: teacher1, user: paul)
+meeting1_2 = Meeting.create!(status: "Terminé", date: Time.new(2018,02,06, 18, 30, 00), duration: 2, city: "Paris",
   zipcode: "75014",  address: "4 rue Alesia", description: "Discussion sur les voyages dans le temps", teacher: teacher1, user: luc)
 
 meeting2 = Meeting.create!(status: "Terminé", date: Time.new(2018,01,06, 11, 25, 00), duration: 3, city: "Paris",
@@ -82,7 +82,7 @@ meeting3 = Meeting.create!(status: "Confirmé", date: Time.new(2018,04,06, 18, 3
   zipcode: "75017",  address: "18 place de clichy", description: "Visites : Les secrets du musée d'Orsay", teacher: teacher4, user: luc)
 meeting4 = Meeting.create!(status: "Terminé", date: Time.new(2018,02,06, 17, 00, 00), duration: 4, city: "Paris",
   zipcode: "75001",  address: "22 rue de l'opéra", description: "Discussion : La légende arthurienne du Moyen Age à nos jours", teacher: teacher5, user: luc)
-meeting5 = Meeting.create!(status: "finished", date: Time.new(2018,03,10, 19, 00, 00), duration: 2, city: "Paris",
+meeting5 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,10, 19, 00, 00), duration: 2, city: "Paris",
   zipcode: "75002",  address: "1 boulevard des Italiens", description: "La performance à travers la gestions des talents", teacher: teacher8, user: jacques)
 meeting6 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 14, 30, 00), duration: 3, city: "Paris",
   zipcode: "75017",  address: "4 rue Nollet", description: "La méthodologie lean en pratique", teacher: teacher9, user: jacques)

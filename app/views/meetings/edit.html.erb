@@ -33,7 +33,7 @@
           <%= f.input :zipcode , label: '<i class="fas fa-envelope-square"></i>'.html_safe + " CP" %>
           <%= f.input :address , label: '<i class="fas fa-envelope-square"></i>'.html_safe + " Adresse" %>
           <%= f.input :description , label: '<i class="fas fa-info"></i>'.html_safe + " Description" %>
-          <%= f.input :status, collection: Meeting::STATUS, label: '<i class="fas fa-tag"></i>'.html_safe + " Status" %>
+          <%= f.input :status, collection: ["A confirmer", "Confirmé", "Annulé"], label: '<i class="fas fa-tag"></i>'.html_safe + " Status" %>
           <%= f.submit "Modifier meeting", class: "btn btn-primary" %>
         <% end %>
       </li>
