@@ -1,0 +1,90 @@
+.alumnus-wrapper {
+    margin: 80px auto;
+    width: 100%;
+    background: white;
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.bio {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border-radius: 3px;
+}
+
+.bio-header {
+    min-height: 50vh;
+    position: relative;
+    text-align: center;
+    padding: 32px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.alumnus-avatar img {
+    width: 160px;
+    height: 160px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.bio-body {
+    padding: 24px 40px 40px 40px;
+}
+
+.bio-ctas {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.bio-desc {
+    margin-bottom: 40px;
+}
+.bio-desc-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px 0px;
+}
+.bio-text {
+    border: 0;
+    width: 100%;
+    resize: none;
+}
+.bio-disabled {
+    pointer-events: none;
+}
+
+.fas {
+  color: black;
+  text-decoration: none;
+  &hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.profil {
+  padding: 30px;
+}
+
+.meetingbio {
+  margin: 80px auto;
+  width: 100%;
+  background: white;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
