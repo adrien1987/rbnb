@@ -9,7 +9,7 @@ class MeetingsController < ApplicationController
     if @meeting.save
       redirect_to profiles_path(@teacher)
     else
-      render :new
+      render 'teachers/show'
     end
   end
 

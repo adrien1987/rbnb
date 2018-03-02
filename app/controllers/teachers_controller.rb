@@ -22,16 +22,22 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
     @teacher.user = current_user
-    @teacher.save
-    redirect_to teacher_path(@teacher)
+    if @teacher.save
+      redirect_to teacher_path(@teacher)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @teacher = Teacher.update(teacher_params)
-    redirect_to teacher_path(@teacher)
+    if @teacher = Teacher.update(teacher_params)
+      redirect_to teacher_path(@teacher)
+    else
+      render :edit
+    end
   end
 
   def teacher_params
