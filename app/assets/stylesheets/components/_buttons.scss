@@ -1,0 +1,8 @@
+.btn-primary {
+  background-color: $rougebansky !important;
+  border-color: $rougebansky;
+  &:hover {
+    opacity: 0.7;
+    border-color: $rougebansky;
+  }
+}
