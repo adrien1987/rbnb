@@ -110,7 +110,7 @@
               <i class="fas fa-star"></i>
             <% end %>
           <% end %>
-          </div> 
+          </div>
         </li>
       <% end %>
   </ul>
@@ -118,7 +118,7 @@
 <br>
 
     <% if @teacher.user.photo.present? %>
-      <%= cl_image_tag @profile.photo, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @teacher.user.photo, height: 300, width: 400, crop: :fill %>
     <% end %>
 
     <ul class="list-group" style="color:black">
