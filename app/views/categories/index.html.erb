@@ -3,27 +3,9 @@
 
 
 <%= render 'shared/banner' %>
+<%= render 'shared/search' %>
 
 <!-- je mets les cards -->
-      <div class="container">
-       <% if params[:query].present? %>
-        <div class="search">
-          <%= form_tag category_teachers_path(@categories.first), method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a category" %>
-          <% end %>
-        </div>
-        <% else  %>
-        <div class="search">
-          <%= form_tag root_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a category" %>
-          <% end %>
-        <% end %>
 
         <div class="row">
         <% @categories.each_with_index  do |category, index| %>

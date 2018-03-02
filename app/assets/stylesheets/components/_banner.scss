@@ -1,25 +1,23 @@
-.text-attributes {
-  color: black;
-  h5 {
+.banner {
+  color: white;
+  text-align: center;
+  height: 500px;
+  background-size: cover !important;
+  &.banner h1 {
+    font-family: "lato",  "Helvetica", "sans-serif";
     font-size: 38px;
-    font-family: 'lato';
+    font-weight: bold;
+    color: black;
+    padding-top: 80px;
+    font-weight: lighter;
+
   }
-  p {
-    font-size: 28px;
-    font-family: 'lato';
+  &.connexionbtn {
+    padding: 10px;
+    font-size: 18px;
   }
 }
 
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 55px;
-  color: black;
-}
-
-.carousel-control-prev-icon:after {
-  content: '<';
-  font-size: 55px;
-  color: black;
+.btn-lg {
+  color: white;
 }

@@ -1,38 +1,11 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag "bansky.jpg", class: "d-block w-100", alt:"First slide" %>
-      <div class="carousel-caption d-none d-md-block text-attributes">
-        <h5>Le premier site de rencontres inspirantes</h5>
-        <p>échangeons nos passions</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "bansky.jpg", class: "d-block w-100", alt:"First slide" %>
-      <div class="carousel-caption d-none d-md-block text-attributes">
-        <h5>Histoire, science, littérature, philosophie...</h5>
-        <p>S'enrichir n'a jamais été aussi simple</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag "bansky.jpg", class: "d-block w-100", alt:"First slide" %>
-      <div class="carousel-caption d-none d-md-block text-attributes">
-        <h5>Un profil vous interesse ?</h5>
-        <p>contactez le !</p>
-      </div>
-    </div>
+
+<div class="banner" style="background-image: url('<%=image_url("bansky.jpg")%>');">
+  <div class="banner-header">
+    <h1>Le premier site de rencontres inspirantes</h1>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon text-attributes" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon text-attributes" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  <div class="banner-content">
+      <div class="connexionbtn">
+        <%= link_to t(".sign_up", default: "Inscription"), new_user_registration_path , class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+ </div>
