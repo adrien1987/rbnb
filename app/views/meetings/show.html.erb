@@ -62,9 +62,11 @@
       <%= link_to '<i class="fas fa-undo"></i> '.html_safe + message, teacher_path(@meeting.teacher) %>
     </li>
 
-    <li class="list-group-item">
-      <%= link_to '<i class="fas fa-edit"></i>'.html_safe + " Modifier", edit_meeting_path(@meeting), class: "btn btn-primary" %>
-    </li>
+    <% if !@meeting.date.to_date.past? %>
+     <li class="list-group-item">
+       <%= link_to '<i class="fas fa-edit"></i>'.html_safe + " Modifier", edit_meeting_path(@meeting), class: "btn btn-primary" %>
+     </li>
+    <% end %>
 
   </ul>
 
