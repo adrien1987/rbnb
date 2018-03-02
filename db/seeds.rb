@@ -34,7 +34,7 @@ puts "End of category seed"
 
 Teacher.destroy_all
 puts "start of teacher seed"
-teacher1 = Teacher.create!(profession: "Astro-physicien", description: "astro physicien de génie", hourly_price_cents: 100,
+teacher1 = Teacher.create!(profession: "Astro-physicien", description: "Astro physicien de génie", hourly_price_cents: 100,
   user: adrien, category: science)
 teacher2 = Teacher.create!(profession: "Mathématicien", description: "10 ans de recherches en mathématiques", hourly_price_cents: 50,
   user: david, category: science)
@@ -89,7 +89,14 @@ meeting6 = Meeting.create!(status: "Terminé", date: Time.new(2018,03,06, 14, 30
 meeting7 = Meeting.create!(status: "Annulé", date: Time.new(2018,02,04, 11, 25, 00), duration: 4, city: "Paris",
   zipcode: "75018",  address: "3 rue de Clignancourt", description: "Débat : comment réduire la dette de la sécurité sociale", teacher: teacher11, user: paul)
 meeting8 = Meeting.create!(status: "Terminé", date: Time.new(2018,01,06, 18, 00, 00), duration: 2, city: "Paris",
-  zipcode: "75010",  address: "2 rue de crimée", description: "Thème : Spinoza, les nihilistes ont toujours torts", teacher: teacher12, user: paul)
+  zipcode: "75010",  address: "2 rue de crimée", description: "Thème : Spinoza, les nihilistes ont toujours torts", teacher: teacher1, user: paul)
+
+meeting9 = Meeting.create!(status: "A confirmer", date: Time.new(2018,03,9, 14, 30, 00), duration: 3, city: "Paris",
+  zipcode: "75017",  address: "4 rue Nollet", description: "Les atomes pour les nuls", teacher: teacher1, user: paul)
+meeting10 = Meeting.create!(status: "Annulé", date: Time.new(2018,02,04, 11, 25, 00), duration: 4, city: "Paris",
+  zipcode: "75018",  address: "3 rue de Clignancourt", description: "La théorie des nombres remiers jumaux", teacher: teacher3, user: paul)
+meeting11 = Meeting.create!(status: "A confirmer", date: Time.new(2018,04,06, 18, 00, 00), duration: 2, city: "Paris",
+  zipcode: "75010",  address: "2 rue de crimée", description: "Les conséquences de l'ordinateur quntique dans la science d'aujourd'hui", teacher: teacher1, user: paul)
 print "meetings : "
 p Meeting.all
 puts "End of meeting seed"
@@ -106,9 +113,9 @@ review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeti
 review5 = Review.create!(note: 4, content: "Super rencontre, échanges axées sur la pratique", meeting: meeting6)
 review6 = Review.create!(note: 5, content: "Tres bonne intervention, je recommande", meeting: meeting7)
 review7 = Review.create!(note: 5, content: "Si mes profs de fac avaient été comme lui", meeting: meeting8)
-# review8 = Review.create!(note: 4, content: "Que de temps gagner grace à cette intervention", meeting: meeting6)
-# review4 = Review.create!(note: 5, content: "Je me sens plus intelligents", meeting: meeting8)
-
+review8 = Review.create!(note: 4, content: "Grace à lui les atomes n'ont plus de secrets pour moi", meeting: meeting9)
+review9 = Review.create!(note: 5, content: "Les mathématiques à l portée de tous", meeting: meeting10)
+review10 = Review.create!(note: 4, content: "L'ordinateur quantique n'a plus de secrets pour moi", meeting: meeting11)
 print "reviews : "
 p Review.all
 puts "End of review seed"
