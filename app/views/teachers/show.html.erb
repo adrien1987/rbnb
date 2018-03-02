@@ -8,7 +8,7 @@
     </li>
     <li class="list-group-item">
       <i class="fas fa-graduation-cap"></i>
-      <%=@teacher.user.firstname.capitalize %> <%= @teacher.user.lastname.upcase %>
+      <%= @teacher.user.firstname.capitalize %> <%= @teacher.user.lastname.upcase %>
     </li>
     <li class="list-group-item">
       <i class="fas fa-envelope-open">
@@ -107,7 +107,7 @@
             <% if star < review.note %>
               <i class="fas fa-star" style="color:  #DAA520"></i>
             <% else %>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star" style="color:  grey"></i>
             <% end %>
           <% end %>
           </div>
@@ -127,12 +127,13 @@
         <!-- This link is not displayed if the current user is the theacher -->
       <% if @current_user != @teacher.user %>
 
-          <h2>
+          <h2 id="brain-form">
             <i class="fas fa-calendar-alt"></i> Réservez le brain
           </h2>
           <%= simple_form_for [@teacher, @meeting], defaults: { input_html: { class: 'form' } } do |f| %>
+            <%= f.error_notification %>
             <%= f.input :date, label: '<i class="fas fa-clock"></i>'.html_safe + " Date" %>
-            <%= f.input :duration, label: "Durée", label: '<i class="fas fa-stopwatch"></i>'.html_safe + " Durée" %>
+            <%= f.input :duration, label: "Durée", label: '<i class="fas fa-stopwatch"></i>'.html_safe + " Durée" , input_html: { min: '0', step: 'any' }  %>
             <%= f.input :city , label: '<i class="fas fa-building"></i>'.html_safe + " Ville" %>
             <%= f.input :zipcode, label: '<i class="fas fa-envelope-square"></i>'.html_safe + " CP" %>
             <%= f.input :address, label: '<i class="fas fa-envelope-square"></i>'.html_safe + " Adresse" %>

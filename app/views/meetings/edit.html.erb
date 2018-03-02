@@ -16,15 +16,19 @@
         </li>
       <li class="list-group-item">
         <i class="fas fa-user"></i>
-        Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %></li>
+        Demandeur : <%= @meeting.user.firstname %>  <%= @meeting.user.lastname %>
+      </li>
+      <% if !@meeting.teacher.hourly_price_cents.nil? && !@meeting.duration.nil? %>
       <li class="list-group-item">
         <i class="fas fa-plus-circle"></i>
       Coût du meeting : <%= @meeting.teacher.hourly_price_cents * @meeting.duration %> €
       </li>
+      <% end %>
       <li class="list-group-item">
         <%= simple_form_for @meeting do |f| %>
+          <%= f.error_notification %>
           <%= f.input :date %>
-          <%= f.input :duration, label: '<i class="fas fa-clock"></i>'.html_safe + " Durée" %>
+          <%= f.input :duration, label: '<i class="fas fa-clock"></i>'.html_safe + " Durée" , input_html: { min: '0', step: 'any' } %>
           <%= f.input :city , label: '<i class="fas fa-building"></i>'.html_safe + " Ville" %>
           <%= f.input :zipcode , label: '<i class="fas fa-envelope-square"></i>'.html_safe + " CP" %>
           <%= f.input :address , label: '<i class="fas fa-envelope-square"></i>'.html_safe + " Adresse" %>

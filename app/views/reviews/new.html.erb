@@ -8,6 +8,7 @@
             <i class="fas fa-calendar-alt"></i> Nouvel avis
           </h2>
           <%= simple_form_for [@meeting, @review] do |f| %>
+            <%= f.error_notification %>
             <%= f.input :note, as: :radio_buttons, collection: (1..5).to_a,
             label: '<i class="fas fa-star" style="color:  #DAA520"></i>'.html_safe + " Stars  "
             %>

@@ -9,8 +9,13 @@ class ReviewsController < ApplicationController
     @meeting = Meeting.find(params[:meeting_id])
     @review = Review.new(review_params)
     @review.meeting = @meeting
-    @review.save
-    redirect_to teacher_path(@review.meeting.teacher)
+    if @review.save
+      puts "note review is = "
+      p @review.note
+      redirect_to teacher_path(@review.meeting.teacher)
+    else
+      render :new
+    end
   end
 
 
