@@ -57,42 +57,46 @@
   </ul>
 
     <br>
-    <div id="meetings-list-card">
-      <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
-      <!-- indice pour parcourir le tabeau bootstrap-->
-      <% i = 0 %>
+    <% if current_user == @teacher.user %>
+      <div id="meetings-list-card">
+        <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
+        <!-- indice pour parcourir le tabeau bootstrap-->
+        <% i = 0 %>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Status</th>
-            <th scope="col">Date</th>
-            <th scope="col">Durée</th>
-            <th scope="col">Ville (CP)</th>
-            <th scope="col">description</th>
-            <th scope="col"> Ajouter Avis</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <% @teacher.meetings.each do |meeting| %>
-
+        <table class="table">
+          <thead>
             <tr>
-              <th scope="row"><%= i = i + 1 %></th>
-              <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
-              <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
-              <td><%= meeting.duration %>h</td>
-              <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
-              <td><%= meeting.description[0,20] %>...</td>
-              <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %> </td>
+              <th scope="col">#</th>
+              <th scope="col">Status</th>
+              <th scope="col">Date</th>
+              <th scope="col">Durée</th>
+              <th scope="col">Ville (CP)</th>
+              <th scope="col">description</th>
             </tr>
+          </thead>
+          <tbody>
 
-          <% end %>
-        </tbody>
-      </table>
+            <% @teacher.meetings.each do |meeting| %>
 
-    </div>
+              <tr>
+                <th scope="row"><%= i = i + 1 %></th>
+                <% if meeting.date.to_date.past? %>
+                <td> <%= link_to "Terminé", meeting_path(meeting) %></td>
+                <% else %>
+                  <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+                <% end %>
+                <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
+                <td><%= meeting.duration %>h</td>
+                <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
+                <td><%= meeting.description[0,20] %>...</td>
+              </tr>
+
+            <% end %> <!-- en of each -->
+          </tbody>
+        </table>
+
+      </div>
+    <% end %> <!-- en of if-->
 
 
     <ul class="list-group" style="color:black">

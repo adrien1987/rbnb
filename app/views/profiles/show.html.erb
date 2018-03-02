@@ -24,6 +24,7 @@
             <th scope="col">Durée</th>
             <th scope="col">Ville (CP)</th>
             <th scope="col">description</th>
+            <th scope="col"> Ajouter Avis</th>
           </tr>
         </thead>
         <tbody>
@@ -32,11 +33,20 @@
 
           <tr>
             <th scope="row"><%= i = i + 1 %></th>
-            <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+            <% if meeting.date.to_date.past? %>
+            <td> <%= link_to "Terminé", meeting_path(meeting) %></td>
+            <% else %>
+              <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+            <% end %>
             <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
             <td><%= meeting.duration %>h</td>
             <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
             <td><%= meeting.description[0,20] %>...</td>
+            <% if meeting.date.to_date.past? %>
+              <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %>
+            <% else %>
+              <td> <i class="fas fa-external-link-alt"></i></td>
+            <% end %>
           </tr>
 
               <% end %>
@@ -44,6 +54,7 @@
       </table>
 
     </div>
+
   </div>
 
   <div class="col-xs-4">
