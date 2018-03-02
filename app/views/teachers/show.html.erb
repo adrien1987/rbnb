@@ -1,136 +1,77 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-login">
+        <div class="presentation">
+          <ul class="list-group" id="profile-card"style="color:black">
+            <li class="list-group-item">
+              <h2  class="text-center">
+                <i class="fas fa-id-card"></i><%= @current_user == @teacher.user ? "Mon profil" : " Profil du Brain" %>
+              </h2>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-graduation-cap"></i>
+              <%= @teacher.user.firstname.capitalize %> <%= @teacher.user.lastname.upcase %>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-envelope-open">
+              </i> <%= @teacher.user.email %>
+            </li>
 
-    <ul class="list-group" id="profile-card"style="color:black">
-    <li class="list-group-item">
-      <h2  class="text-center">
-        <i class="fas fa-id-card"></i><%= @current_user == @teacher.user ? "Mon profil" : " Profil du Brain" %>
-      </h2>
-    </li>
-    <li class="list-group-item">
-      <i class="fas fa-graduation-cap"></i>
-      <%= @teacher.user.firstname.capitalize %> <%= @teacher.user.lastname.upcase %>
-    </li>
-    <li class="list-group-item">
-      <i class="fas fa-envelope-open">
-      </i> <%= @teacher.user.email %>
-    </li>
-
-    <% if @current_user == @teacher.user %>
-    <li class="list-group-item">
-      <%= link_to '<i class="fas fa-pen-square"></i>'.html_safe + " Modifier mes informations de base", edit_user_registration_path %>
-    </li>
-    <% end %>
-
-
-    <li class="list-group-item">
-      <i class="fas fa-briefcase"></i>
-      Profession : <%= @teacher.profession %>
-    </li>
-
-    <li class="list-group-item">
-      <i class="fas fa-info"></i>
-      Description : <%= @teacher.description %>
-    </li>
-
-    <li class="list-group-item">
-      <i class="fas fa-plus-circle"></i>
-      Taux horaire : <%= @teacher.hourly_price_cents %> €
-    </li>
-
-    <li class="list-group-item">
-      <i class="fas fa-list-alt"></i>
-      Categorie : <%= @teacher.category.name %>
-    </li>
-
-    <% if @current_user == @teacher.user %>
-      <li class="list-group-item">
-    <%= link_to "Modifier mes informations formateur", edit_teacher_path(@teacher) %>
-      </li>
-    <% end %>
-
-    <% if @current_user != @teacher.user %>
-      <li class="list-group-item">
-        <%= link_to "Autres formateurs de la categorie #{@teacher.category.name}", category_teachers_path(@teacher.category), class: "text-center" %>
-      </li>
-    <% end %>
-
-  </ul>
-
-    <br>
-    <div id="meetings-list-card">
-      <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
-      <!-- indice pour parcourir le tabeau bootstrap-->
-      <% i = 0 %>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Status</th>
-            <th scope="col">Date</th>
-            <th scope="col">Durée</th>
-            <th scope="col">Ville (CP)</th>
-            <th scope="col">description</th>
-            <th scope="col"> Ajouter Avis</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <% @teacher.meetings.each do |meeting| %>
-
-            <tr>
-              <th scope="row"><%= i = i + 1 %></th>
-              <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
-              <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
-              <td><%= meeting.duration %>h</td>
-              <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
-              <td><%= meeting.description[0,20] %>...</td>
-              <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %> </td>
-            </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-
-    </div>
-
-
-    <ul class="list-group" style="color:black">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <h2 class="text-center"> <i class="fas fa-comment-alt"></i> Avis </h2>
-
-      </li>
-      <% @teacher.reviews.each do |review| %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div> <%= review.content %></div>
-          <div><% 5.times do |star| %>
-            <% if star < review.note %>
-              <i class="fas fa-star" style="color:  #DAA520"></i>
-            <% else %>
-              <i class="fas fa-star" style="color:  grey"></i>
+            <% if @current_user == @teacher.user %>
+            <li class="list-group-item">
+              <%= link_to '<i class="fas fa-pen-square"></i>'.html_safe + " Modifier mes informations de base", edit_user_registration_path %>
+            </li>
             <% end %>
-          <% end %>
-          </div>
-        </li>
-      <% end %>
-  </ul>
 
-<br>
 
-    <% if @teacher.user.photo.present? %>
-      <%= cl_image_tag @teacher.user.photo, height: 300, width: 400, crop: :fill %>
-    <% end %>
+            <li class="list-group-item">
+              <i class="fas fa-briefcase"></i>
+              Profession : <%= @teacher.profession %>
+            </li>
 
-    <ul class="list-group" style="color:black">
-    <li class="list-group-item">
+            <li class="list-group-item">
+              <i class="fas fa-info"></i>
+              Description : <%= @teacher.description %>
+            </li>
 
-        <!-- This link is not displayed if the current user is the theacher -->
-      <% if @current_user != @teacher.user %>
+            <li class="list-group-item">
+              <i class="fas fa-plus-circle"></i>
+              Taux horaire : <%= @teacher.hourly_price_cents %> €
+            </li>
 
-          <h2 id="brain-form">
-            <i class="fas fa-calendar-alt"></i> Réservez le brain
-          </h2>
-          <%= simple_form_for [@teacher, @meeting], defaults: { input_html: { class: 'form' } } do |f| %>
+            <li class="list-group-item">
+              <i class="fas fa-list-alt"></i>
+              Categorie : <%= @teacher.category.name %>
+            </li>
+
+            <% if @current_user == @teacher.user %>
+            <li class="list-group-item">
+              <%= link_to "Modifier mes informations formateur", edit_teacher_path(@teacher) %>
+            </li>
+            <% end %>
+
+            <% if @current_user != @teacher.user %>
+            <li class="list-group-item">
+              <%= link_to "Autres formateurs de la categorie #{@teacher.category.name}", category_teachers_path(@teacher.category), class: "text-center" %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="form-login">
+        <ul class="list-group" style="color:black">
+          <li class="list-group-item">
+
+            <!-- This link is not displayed if the current user is the theacher -->
+            <% if @current_user != @teacher.user %>
+
+            <h2 id="brain-form">
+              <i class="fas fa-calendar-alt"></i> Réservez le brain
+            </h2>
+            <%= simple_form_for [@teacher, @meeting], defaults: { input_html: { class: 'form' } } do |f| %>
             <%= f.error_notification %>
             <%= f.input :date, label: '<i class="fas fa-clock"></i>'.html_safe + " Date" %>
             <%= f.input :duration, label: "Durée", label: '<i class="fas fa-stopwatch"></i>'.html_safe + " Durée" , input_html: { min: '0', step: 'any' }  %>
@@ -139,15 +80,74 @@
             <%= f.input :address, label: '<i class="fas fa-envelope-square"></i>'.html_safe + " Adresse" %>
             <%= f.input :description , label: '<i class="fas fa-info"></i>'.html_safe + " Description"%>
             <%= f.submit "Réservez !", class: "btn btn-primary" %>
+            <% end %>
+
+            <% end %>
+            <!-- end of display of message specific to a user who is not a teacher -->
+          </li>
+        </ul>
+        <br>
+        <div id="meetings-list-card">
+          <h2 class="text-center"> <i class="fas fa-clock"></i> Meetings </h2>
+          <!-- indice pour parcourir le tabeau bootstrap-->
+          <% i = 0 %>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Ville (CP)</th>
+                <th scope="col">description</th>
+                <th scope="col"> Ajouter Avis</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <% @teacher.meetings.each do |meeting| %>
+
+              <tr>
+                <th scope="row"><%= i = i + 1 %></th>
+                <td> <%= link_to meeting.status, meeting_path(meeting) %></td>
+                <td><%= meeting.date.strftime('%d/%m/%Y à %H:%M') %></td>
+                <td><%= meeting.duration %>h</td>
+                <td><%= meeting.city %> (<%= meeting.zipcode %>)</td>
+                <td><%= meeting.description[0,20] %>...</td>
+                <td> <%= link_to '<i class="fas fa-external-link-alt"></i>'.html_safe, new_meeting_review_path(meeting) %> </td>
+              </tr>
+
+              <% end %>
+            </tbody>
+          </table>
+
+        </div>
+
+
+        <ul class="list-group" style="color:black">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <h2 class="text-center"> <i class="fas fa-comment-alt"></i> Avis </h2>
+
+          </li>
+          <% @teacher.reviews.each do |review| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div> <%= review.content %></div>
+            <div><% 5.times do |star| %>
+              <% if star < review.note %>
+              <i class="fas fa-star" style="color:  #DAA520"></i>
+              <% else %>
+              <i class="fas fa-star" style="color:  grey"></i>
+              <% end %>
+              <% end %>
+            </div>
+          </li>
           <% end %>
+        </ul>
 
-      <% end %>
-      <!-- end of display of message specific to a user who is not a teacher -->
-    </li>
+        <br>
 
-  </ul>
-
-
-
+      </div>
+    </div>
+  </div>
 </div>
-

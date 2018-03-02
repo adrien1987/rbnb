@@ -1,5 +1,11 @@
 <div class="container">
-  <h2>Devenir formateur </h2>
-  <p> <%= current_user.firstname.capitalize %> <%= current_user.lastname.upcase %> : <%= current_user.email %> </p>
-  <%= render "form" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
+      <div class="form-login">
+        <h2>Devenir formateur </h2>
+        <p> <%= current_user.firstname.capitalize %> <%= current_user.lastname.upcase %> : <%= current_user.email %> </p>
+        <%= render "form" %>
+      </div>
+    </div>
+  </div>
 </div>
